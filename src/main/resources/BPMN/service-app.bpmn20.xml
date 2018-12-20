@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="service" name="service-app" isExecutable="true">
+    <documentation>服务调用</documentation>
+    <startEvent id="startEvent1" name="开始"></startEvent>
+    <endEvent id="sid-90F7E61B-22F1-44C9-A349-42F41DC9D926" name="结束"></endEvent>
+    <userTask id="sid-EA6BE272-7EBE-47FC-8783-FEBEF70483B3" name="USR-A"></userTask>
+    <userTask id="sid-051F2643-A0EE-4A63-A968-8E7955F7040E" name="USR-B"></userTask>
+    <sequenceFlow id="sid-A61047D3-A6A8-4A4E-ACCA-436AEC33BB1B" sourceRef="startEvent1" targetRef="sid-EA6BE272-7EBE-47FC-8783-FEBEF70483B3"></sequenceFlow>
+    <sequenceFlow id="sid-B0231523-720D-418E-A80C-649090E40D18" sourceRef="sid-051F2643-A0EE-4A63-A968-8E7955F7040E" targetRef="sid-90F7E61B-22F1-44C9-A349-42F41DC9D926"></sequenceFlow>
+    <serviceTask id="sid-D0289403-2174-4EA3-A689-7DC3C0E0D24B" name="服务" activiti:class="workflow.delegate.ServiceDelegate"></serviceTask>
+    <sequenceFlow id="sid-ABD3F0CA-0F50-4AFA-AD52-E34C9159C00E" sourceRef="sid-EA6BE272-7EBE-47FC-8783-FEBEF70483B3" targetRef="sid-D0289403-2174-4EA3-A689-7DC3C0E0D24B"></sequenceFlow>
+    <sequenceFlow id="sid-93C831A2-0C54-47E8-B82B-4A9A99721E3C" sourceRef="sid-D0289403-2174-4EA3-A689-7DC3C0E0D24B" targetRef="sid-051F2643-A0EE-4A63-A968-8E7955F7040E"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_service">
+    <bpmndi:BPMNPlane bpmnElement="service" id="BPMNPlane_service">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="60.0" y="145.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-90F7E61B-22F1-44C9-A349-42F41DC9D926" id="BPMNShape_sid-90F7E61B-22F1-44C9-A349-42F41DC9D926">
+        <omgdc:Bounds height="28.0" width="28.0" x="870.0" y="146.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-EA6BE272-7EBE-47FC-8783-FEBEF70483B3" id="BPMNShape_sid-EA6BE272-7EBE-47FC-8783-FEBEF70483B3">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-051F2643-A0EE-4A63-A968-8E7955F7040E" id="BPMNShape_sid-051F2643-A0EE-4A63-A968-8E7955F7040E">
+        <omgdc:Bounds height="80.0" width="100.0" x="615.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-D0289403-2174-4EA3-A689-7DC3C0E0D24B" id="BPMNShape_sid-D0289403-2174-4EA3-A689-7DC3C0E0D24B">
+        <omgdc:Bounds height="80.0" width="100.0" x="435.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-A61047D3-A6A8-4A4E-ACCA-436AEC33BB1B" id="BPMNEdge_sid-A61047D3-A6A8-4A4E-ACCA-436AEC33BB1B">
+        <omgdi:waypoint x="90.0" y="160.0"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-93C831A2-0C54-47E8-B82B-4A9A99721E3C" id="BPMNEdge_sid-93C831A2-0C54-47E8-B82B-4A9A99721E3C">
+        <omgdi:waypoint x="535.0" y="160.0"></omgdi:waypoint>
+        <omgdi:waypoint x="615.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B0231523-720D-418E-A80C-649090E40D18" id="BPMNEdge_sid-B0231523-720D-418E-A80C-649090E40D18">
+        <omgdi:waypoint x="715.0" y="160.0"></omgdi:waypoint>
+        <omgdi:waypoint x="870.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-ABD3F0CA-0F50-4AFA-AD52-E34C9159C00E" id="BPMNEdge_sid-ABD3F0CA-0F50-4AFA-AD52-E34C9159C00E">
+        <omgdi:waypoint x="370.0" y="160.0"></omgdi:waypoint>
+        <omgdi:waypoint x="435.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
